@@ -36,6 +36,14 @@ class NotesController extends Controller
         ]);
     }
 
+    public function deleteNote($id){
+        $note = DB::table('notes')->where('id', $id)->delete();
+
+        return response([
+            'notes'=>$note
+        ]);
+    }
+
 
         
 

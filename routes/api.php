@@ -27,6 +27,7 @@ Route::post('/register',[AuthController::class,'register']);
 Route::post('/login',[AuthController::class,'login']);
 Route::post('/addnote/{id}',[NotesController::class,'addNotes']);
 Route::post('/getnotes/{id}',[NotesController::class,'getNotes']);
+Route::post('/deletenote/{id}',[NotesController::class,'deleteNote']);
 
 
 // Protected routes
