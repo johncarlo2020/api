@@ -11,7 +11,7 @@ class NotesController extends Controller
     //
     public function addNotes(Request $request, $id ){
 
-        $userid=$id;
+        $userid=int($id);
         $attrs = $request->validate([
             'title' => 'required|string',
             'body' => 'required|string'
