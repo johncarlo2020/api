@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\NotesController;
+use App\Http\Controllers\GalleryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +30,7 @@ Route::post('/login',[AuthController::class,'login']);
 Route::post('/addnote/{id}',[NotesController::class,'addNotes']);
 Route::post('/getnotes/{id}',[NotesController::class,'getNotes']);
 Route::post('/deletenote/{id}',[NotesController::class,'deleteNote']);
+Route::post('/addimg/{id}',[GalleryController::class,'addimg']);
 
 
 // Protected routes

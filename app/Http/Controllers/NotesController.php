@@ -11,14 +11,14 @@ class NotesController extends Controller
     //
     public function addNotes(Request $request, $id ){
 
-        $userid=int($id);
+       
         $attrs = $request->validate([
             'title' => 'required|string',
             'body' => 'required|string'
         ]);
 
         $note = Notes::create([
-            'userId' => $userid,
+            'userId' => $id,
             'title' => $attrs['title'],
             'body' => $attrs['body']
         ]);
