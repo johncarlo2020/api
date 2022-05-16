@@ -9,16 +9,17 @@ use Illuminate\Support\Facades\DB;
 class NotesController extends Controller
 {
     //
-    public function addNotes(Request $request, $id ){
+    public function addNotes(Request $request){
 
        
         $attrs = $request->validate([
+            'userId'=> 'required|integer',
             'title' => 'required|string',
             'body' => 'required|string'
         ]);
 
         $note = Notes::create([
-            'userId' => $id,
+            'userId' => $attrs['userId'],
             'title' => $attrs['title'],
             'body' => $attrs['body']
         ]);
