@@ -27,11 +27,7 @@ use App\Http\Controllers\GalleryController;
 
 Route::post('/register',[AuthController::class,'register']);
 Route::post('/login',[AuthController::class,'login']);
-Route::post('/addnote',[NotesController::class,'addNotes']);
-Route::post('/getnotes/{id}',[NotesController::class,'getNotes']);
-Route::post('/deletenote/{id}',[NotesController::class,'deleteNote']);
-Route::post('/addimg/{id}',[GalleryController::class,'addimg']);
-Route::post('/getimg/{id}',[GalleryController::class,'getimg']);
+
 
 
 
@@ -42,5 +38,10 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
     //User
     Route::get('/user',[AuthController::class,'user']);
     Route::post('/logout',[AuthController::class,'logout']);
+    Route::post('/addnote',[NotesController::class,'addNotes']);
+    Route::post('/getnotes/{id}',[NotesController::class,'getNotes']);
+    Route::post('/deletenote/{id}',[NotesController::class,'deleteNote']);
+    Route::post('/addimg/{id}',[GalleryController::class,'addimg']);
+    Route::post('/getimg/{id}',[GalleryController::class,'getimg']);
 
 });
