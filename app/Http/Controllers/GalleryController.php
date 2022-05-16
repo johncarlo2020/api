@@ -27,4 +27,12 @@ class GalleryController extends Controller
 
 
     }
+
+    public function getimg($id){
+        $gallery = DB::table('galleries')->where('userId', $id)->get();
+
+        return response([
+            'gallery'=>$gallery
+        ]);
+    }
 }

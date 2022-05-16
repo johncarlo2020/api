@@ -31,6 +31,8 @@ Route::post('/addnote/{id}',[NotesController::class,'addNotes']);
 Route::post('/getnotes/{id}',[NotesController::class,'getNotes']);
 Route::post('/deletenote/{id}',[NotesController::class,'deleteNote']);
 Route::post('/addimg/{id}',[GalleryController::class,'addimg']);
+Route::post('/getimg/{id}',[GalleryController::class,'getimg']);
+
 
 
 // Protected routes
