@@ -18,7 +18,7 @@ class NotesController extends Controller
         ]);
 
         $note = Notes::create([
-            'userId' => $id,
+            'userId' => $userid,
             'title' => $attrs['title'],
             'body' => $attrs['body']
         ]);
