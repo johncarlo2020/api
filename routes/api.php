@@ -39,9 +39,9 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
     Route::get('/user',[AuthController::class,'user']);
     Route::post('/logout',[AuthController::class,'logout']);
     Route::post('/addnote',[NotesController::class,'addNotes']);
-    Route::post('/getnotes/{id}',[NotesController::class,'getNotes']);
+    Route::get('/getnotes/{id}',[NotesController::class,'getNotes']);
     Route::post('/deletenote/{id}',[NotesController::class,'deleteNote']);
     Route::post('/addimg/{id}',[GalleryController::class,'addimg']);
-    Route::post('/getimg/{id}',[GalleryController::class,'getimg']);
+    Route::get('/getimg/{id}',[GalleryController::class,'getimg']);
 
 });
