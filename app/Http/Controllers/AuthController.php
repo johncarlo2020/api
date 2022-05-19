@@ -6,6 +6,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
+
+
 
 class AuthController extends Controller
 {
@@ -73,6 +77,11 @@ class AuthController extends Controller
         return response([
             'user' => auth()->user()
         ],200);
+    }
+
+    public function userlist(){
+        $users=DB::table('users')->get();
+        return view('dashboard', compact("users"));
     }
     
 }

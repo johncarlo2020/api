@@ -1,6 +1,15 @@
 <x-guest-layout>
     <x-auth-card>
+    <div class="flex items-center text-center mt-4">
+            <h2 class="ml-2 text-sm text-gray-600 mb-4">
+                By creating an account, You may receive newsletters or promotions
+            </h2>
+            <br>
+        </div>
         <x-slot name="logo">
+             <h1 class="ml-2 text-lg text-gray-600 text-center">
+                REGISTER
+            </h1>
             <a href="/">
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
             </a>
