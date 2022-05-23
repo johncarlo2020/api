@@ -22,7 +22,8 @@ class AuthController extends Controller
             'email' => 'required|email|unique:users,email',
             'password' => 'required',
             'type' => 'required',
-            'subcription' => 'required'
+            'subcription' => 'required',
+            'status'=>'required'
         ]);
         // create user
         $user = User::create([
@@ -31,7 +32,7 @@ class AuthController extends Controller
             'password' => bcrypt($attrs['password']),
             'type' => $attrs['type'],
             'subcription' => $attrs['subcription'],
-            'status'=> 1
+            'status'=> $attrs['status']
         ]);
         //return user & token response
         return response([
