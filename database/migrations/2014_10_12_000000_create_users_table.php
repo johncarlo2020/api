@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('type');
             $table->string('subcription');
+            $table->integer('status');
             $table->rememberToken();
             $table->timestamps();
         });
