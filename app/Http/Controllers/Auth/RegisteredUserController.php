@@ -44,6 +44,7 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'type' => 'admin',
             'subcription'=>'0',
+            'status'=>'1',
             'password' => Hash::make($request->password),
         ]);
 
