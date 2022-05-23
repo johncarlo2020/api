@@ -30,7 +30,8 @@ class AuthController extends Controller
             'email' => $attrs['email'],
             'password' => bcrypt($attrs['password']),
             'type' => $attrs['type'],
-            'subcription' => $attrs['subcription']
+            'subcription' => $attrs['subcription'],
+            'status'=> 1
         ]);
         //return user & token response
         return response([
