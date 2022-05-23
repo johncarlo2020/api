@@ -82,7 +82,7 @@ class AuthController extends Controller
     }
 
     public function userlist(){
-        $users=DB::table('users')->get();
+        $users=DB::table('users')->where('type','user')->get();
         return view('dashboard', compact("users"));
     }
     
