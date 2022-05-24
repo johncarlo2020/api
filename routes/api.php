@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\NotesController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\userLog;
+
 
 
 /*
@@ -43,5 +45,8 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
     Route::post('/deletenote/{id}',[NotesController::class,'deleteNote']);
     Route::post('/addimg/{id}',[GalleryController::class,'addimg']);
     Route::get('/getimg/{id}',[GalleryController::class,'getimg']);
+    Route::post('/addlog',[UserLog::class,'addlog']);
+
+    
 
 });
