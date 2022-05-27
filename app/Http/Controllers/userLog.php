@@ -11,15 +11,15 @@ class userLog extends Controller
     public function addlog(Request $request){
         $attrs = $request->validate([
             'user_id'=> 'required|integer',
-            'starttime' => 'required',
-            'endtime' => 'required',
+            'date' => 'required|date',
+            'time'=> 'required|time',
             'location' => 'required|string'
         ]);
 
         $log = UserLogs::create([
             'user_id' => $attrs['user_id'],
-            'starttime' => $attrs['starttime'],
-            'endtime' => $attrs['endtime'],
+            'date' => $attrs['date'],
+            'time'=> $attrs['time'],
             'location' => $attrs['location']
         ]);
 
