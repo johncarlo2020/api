@@ -12,8 +12,8 @@ class UserLogs extends Model
     protected $fillable = [
         'id',
         'user_id',
-        'starttime',
-        'endtime',
+        'date',
+        'time',
         'location',
     ];
 }
