@@ -16,16 +16,14 @@
             @endforeach
        
             <h1 class="text-lg pt-10">Notes</h1>
-
-                                
-                
-            <div class="max-w-md py-4 px-8 bg-gray-100 dark:bg-gray-900 shadow-lg rounded-lg my-20">
-                                    <div>
-                                        <h2 class="text-gray-800 text-3xl font-semibold">Design Tools</h2>
-                                        <p class="mt-2 text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae dolores deserunt ea doloremque natus error, rerum quas odio quaerat nam ex commodi hic, suscipit in a veritatis pariatur minus consequuntur!</p>
-                                    </div>
-                                    
-                                </div>
+            @foreach($notes as $note)
+                <div class="max-w-md py-4 px-8 bg-gray-100 dark:bg-gray-900 shadow-lg rounded-lg my-20">
+                    <div>
+                        <h2 class="text-gray-800 text-3xl font-semibold">{{$note->title}}</h2>
+                        <p class="mt-2 text-gray-600">{{$note->body}}</p>
+                    </div>
+            @endforeach
+                </div>
             </div>
         </div>
     </div>
