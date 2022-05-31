@@ -34,6 +34,9 @@
                                 <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                                     Status
                                 </th>
+                                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                    Deactivate
+                                </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -63,6 +66,11 @@
                                         Deactivated
                                     @endif
 
+                                    </td>
+                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                    <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                                   Deactivate
+                                    </button>
                                     </td>
                                 </tr>
                                 @endforeach
