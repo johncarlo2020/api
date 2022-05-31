@@ -10,6 +10,12 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             @foreach($users as $user)
                <h1 class="text-lg">{{$user->name}}</h1>
+               <h1 class="text-lg">{{$user->email}}</h1>
+               <h1 class="text-lg">{{$user->type}}</h1>
+               <h1 class="text-lg">{{$user->subcription}}</h1>
+
+
+
             @endforeach
                
             </div>
