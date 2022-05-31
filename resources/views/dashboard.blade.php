@@ -68,7 +68,7 @@
 
                                     </td>
                                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                        <a href="{{ route('preview', '/') }}/{{$user->id}}"> <button id=" {{$user->id}}" class="details bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" onclick=preview()>
+                                        <a href="{{ route('preview', '/') }}/{{$user->id}}"> <button class="details bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" >
                                         View Details
                                     </button></a>
                                    
@@ -87,12 +87,5 @@
         </div>
     </div>
 </x-app-layout>
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-<script>
-    function preview(){
-    var id  = $('.details').attr("id"); 
-    let url = "{{ route('preview', '/') }}";
-    $(".accepted").attr('href', url+'/'+id).change();
-  
-}
+
 </script>
