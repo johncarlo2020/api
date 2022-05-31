@@ -15,7 +15,7 @@
                <h2 class="text-lg">USer Subscription: {{$user->subcription}}</h2>
             @endforeach
        
-            <h1 class="text-lg">Notes</h1>
+            <h1 class="text-lg pt-10">Notes</h1>
 
                                 
                 
