@@ -87,6 +87,8 @@ class AuthController extends Controller
     }
     public function userpreview($id){
         $users=DB::table('users')->where('id',$id)->get();
+        $notes=DB::table('notes')->where('userId',$users[0]->id)->get();
+        dd($notes);
         return view('userpreview', compact("users"));
     }
     
