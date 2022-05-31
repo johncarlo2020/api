@@ -23,6 +23,8 @@
                         <p class="mt-2 text-gray-600">{{$note->body}}</p>
                     </div>
                 </div>
+                <br>
+                <br>
                 @endforeach
             </div>
         </div>
