@@ -68,9 +68,10 @@
 
                                     </td>
                                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                    <button id=" {{$user->id}}" class="details bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" onclick=preview()>
+                                        <a href="{{ route('preview', '/') }}{{$user->id}}"> <button id=" {{$user->id}}" class="details bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" onclick=preview()>
                                         View Details
-                                    </button>
+                                    </button></a>
+                                   
                                     
                                     </td>
                                 </tr>
