@@ -22,8 +22,8 @@
                         <h2 class="text-gray-800 text-3xl font-semibold">{{$note->title}}</h2>
                         <p class="mt-2 text-gray-600">{{$note->body}}</p>
                     </div>
-            @endforeach
                 </div>
+                @endforeach
             </div>
         </div>
     </div>
