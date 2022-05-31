@@ -68,9 +68,10 @@
 
                                     </td>
                                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                    <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                                    <button id=" {{$user->id}}" class="details bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" onclick=preview()>
                                         View Details
                                     </button>
+                                    
                                     </td>
                                 </tr>
                                 @endforeach
@@ -85,3 +86,12 @@
         </div>
     </div>
 </x-app-layout>
+
+<script>
+    function preview(){
+    var id  = $('.details').attr("id"); 
+    let url = "{{ route('preview', '/') }}";
+    $(".accepted").attr('href', url+'/'+id).change();
+  
+}
+</script>
