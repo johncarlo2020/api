@@ -91,5 +91,26 @@ class AuthController extends Controller
      
         return view('userpreview', compact("users","notes"));
     }
+    public function activate($id){
+
+        $affected = DB::update(
+            'update users set status = 1 where id = ?',
+            [$id]
+        );
+        $users=DB::table('users')->where('id',$id)->get();
+        $notes=DB::table('notes')->where('userId',$users[0]->id)->get();
+     
+        return view('userpreview', compact("users","notes"));
+    }
+    public function deactivate($id){
+        $affected = DB::update(
+            'update users set status = 0 where id = ?',
+            [$id]
+        );
+        $users=DB::table('users')->where('id',$id)->get();
+        $notes=DB::table('notes')->where('userId',$users[0]->id)->get();
+     
+        return view('userpreview', compact("users","notes"));
+    }
     
 }
