@@ -25,6 +25,9 @@ Route::get('/', function () {
 
 Route::get('/dashboard',[AuthController::class,'userlist'])->middleware(['auth'])->name('dashboard');
 Route::get('/dashboard/{id}',[AuthController::class,'userpreview'])->middleware(['auth'])->name('preview');
+Route::get('/dashboard/activate/{id}',[AuthController::class,'activate'])->middleware(['auth'])->name('activate');
+Route::get('/dashboard/deactivate/{id}',[AuthController::class,'deactivate'])->middleware(['auth'])->name('deactivate');
+
 
 
 

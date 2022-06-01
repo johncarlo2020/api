@@ -13,6 +13,19 @@
                <h2 class="text-lg">Email: {{$user->email}}</h2>
                <h2 class="text-lg">User Type: {{$user->type}}</h2>
                <h2 class="text-lg">USer Subscription: {{$user->subcription}}</h2>
+               @if($user->status==1)
+               <a href="{{ route('deactivate', '/') }}/{{$user->id}}"> 
+                   <button class="details bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" >
+                        Deactivate
+                    </button>
+                </a>
+               @elseif($user->status==0)
+               <a href="{{ route('activate', '/') }}/{{$user->id}}"> 
+                    <button class="details bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" >
+                        Activate
+                    </button>
+                </a>
+               @endif
             @endforeach
        
             <h1 class="text-lg pt-10">Notes</h1>
