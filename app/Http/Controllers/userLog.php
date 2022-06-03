@@ -12,7 +12,7 @@ class userLog extends Controller
         $attrs = $request->validate([
             'user_id'=> 'required|integer',
             'date' => 'required|date',
-            'time'=> 'required|time',
+            'time'=> 'required|date_format:H:i:s',
             'location' => 'required|string'
         ]);
 
