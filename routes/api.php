@@ -29,7 +29,7 @@ use App\Http\Controllers\userLog;
 
 Route::post('/register',[AuthController::class,'register']);
 Route::post('/login',[AuthController::class,'login']);
-
+Route::post('/addlog',[UserLog::class,'addlog']);
 
 
 
@@ -45,8 +45,7 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
     Route::post('/deletenote/{id}',[NotesController::class,'deleteNote']);
     Route::post('/addimg/{id}',[GalleryController::class,'addimg']);
     Route::get('/getimg/{id}',[GalleryController::class,'getimg']);
-    Route::post('/addlog',[UserLog::class,'addlog']);
+   
 
     
-
 });
