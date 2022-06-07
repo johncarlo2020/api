@@ -29,11 +29,9 @@
                                     Subscription
                                 </th>
                                 <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                    created at
+                                    status
                                 </th>
-                                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                    Status
-                                </th>
+                               
                                 <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                                     Action
                                 </th>
@@ -56,17 +54,9 @@
                                     {{$user->subcription}}
                                     </td>
                                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                    {{$user->created_at}}
+                                    {{$user->interval}}
                                     </td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                     
-                                    @if($user->status == 1 )
-                                        Active
-                                    @else
-                                        Deactivated
-                                    @endif
-
-                                    </td>
                                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                         <a href="{{ route('preview', '/') }}/{{$user->id}}"> <button class="details bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" >
                                         View Details
