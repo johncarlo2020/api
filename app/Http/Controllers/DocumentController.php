@@ -27,7 +27,9 @@ class DocumentController extends Controller
         if ($files = $request->file('file')) {
              
             //store file into document folder
-            $file = $request->file->store('public/documents');
+            $file = $request->file->store('documents');
+            $path           = 'documents';
+            $file1=$request->file -> move($path, $file);  
 
             $document = Document::create([
                 'title' => $file,
