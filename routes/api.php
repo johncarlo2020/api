@@ -6,6 +6,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\NotesController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\userLog;
+use App\Http\Controllers\DocumentController;
+
 
 
 
@@ -30,6 +32,7 @@ use App\Http\Controllers\userLog;
 Route::post('/register',[AuthController::class,'register']);
 Route::post('/login',[AuthController::class,'login']);
 Route::post('/addlog',[UserLog::class,'addlog']);
+Route::post('/store-file', [DocumentController::class,'store']);
 
 
 
@@ -45,6 +48,8 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
     Route::post('/deletenote/{id}',[NotesController::class,'deleteNote']);
     Route::post('/addimg/{id}',[GalleryController::class,'addimg']);
     Route::get('/getimg/{id}',[GalleryController::class,'getimg']);
+
+    
    
 
     
