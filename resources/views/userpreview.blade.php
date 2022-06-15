@@ -11,7 +11,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="profile-head">
+                        <div class="profile-head ">
                                     <h5>
                                         {{$users[0]->name}}
                                     </h5>
@@ -24,6 +24,16 @@
                                     <h6>
                                     {{$users[0]->subcription}}
                                     </h6>
+
+                                    @if($users[0]->status==0)
+                                    <a href="{{  url('') }}/dashboard/activate/{{$users[0]->id}}">  
+                                        <button type="button" class="btn btn-primary">Activate</button>
+                                    </a>
+                                    @else
+                                    <a href="{{  url('') }}/dashboard/deactivate/{{$users[0]->id}}">    
+                                        <button type="button" class="btn btn-danger ">Deactivate</button>
+                                    </a>
+                                    @endif
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#notes" role="tab" aria-controls="home" aria-selected="true">Notes</a>

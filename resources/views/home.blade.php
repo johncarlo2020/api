@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-<table class="table table-striped">
+<table class="table table-striped" id="users">
   <thead>
     <tr>
       <th scope="col">Name</th>
@@ -35,3 +35,5 @@
 </table>
 </div>
 @endsection
+
+
