@@ -134,13 +134,12 @@ class AuthController extends Controller
             
           $users[$a]->interval=$tinterval;
         }
-    
-        return view('dashboard', compact("users"));
+        return view('home', compact("users"));
     }
     public function userpreview($id){
         $users=DB::table('users')->where('id',$id)->get();
         $notes=DB::table('notes')->where('userId',$users[0]->id)->get();
-     
+
         return view('userpreview', compact("users","notes"));
     }
     public function activate($id){

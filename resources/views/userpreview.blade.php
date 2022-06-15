@@ -1,46 +1,109 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layouts.app')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-            @foreach($users as $user)
-               <h2 class="text-lg">Name: {{$user->name}}</h2>
-               <h2 class="text-lg">Email: {{$user->email}}</h2>
-               <h2 class="text-lg">User Type: {{$user->type}}</h2>
-               <h2 class="text-lg">USer Subscription: {{$user->subcription}}</h2>
-               @if($user->status==1)
-               <a href="{{ route('deactivate', '/') }}/{{$user->id}}"> 
-                   <button class="details bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" >
-                        Deactivate
-                    </button>
-                </a>
-               @elseif($user->status==0)
-               <a href="{{ route('activate', '/') }}/{{$user->id}}"> 
-                    <button class="details bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" >
-                        Activate
-                    </button>
-                </a>
-               @endif
-            @endforeach
-       
-            <h1 class="text-lg pt-10">Notes</h1>
-            @foreach($notes as $note)
-                <div class="max-w-md py-4 px-8 bg-gray-100 dark:bg-gray-900 shadow-lg rounded-lg my-20">
-                    <div>
-                        <h2 class="text-gray-800 text-3xl font-semibold">{{$note->title}}</h2>
-                        <p class="mt-2 text-gray-600">{{$note->body}}</p>
+@section('content')
+<div class="container emp-profile">
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-img">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
+                           
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                                    <h5>
+                                        {{$users[0]->name}}
+                                    </h5>
+                                    <h6>
+                                    {{$users[0]->email}}
+                                    </h6>
+                                    <h6>
+                                    {{$users[0]->type}}
+                                    </h6>
+                                    <h6>
+                                    {{$users[0]->subcription}}
+                                    </h6>
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#notes" role="tab" aria-controls="home" aria-selected="true">Notes</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#gallery" role="tab" aria-controls="profile" aria-selected="false">Gallery</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                 
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                       
+                    </div>
+                    <div class="col-md-8">
+                        <div class="tab-content profile-tab " id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            @foreach($notes as $note)
+                            <div class="card" style="width: 40rem;">
+                              <div class="card-body">
+                                <h5 class="card-title">{{$note->title}}</h5>
+                                <p class="card-text">{{$note->body}}</p>
+                             
+                             </div>
+                            </div>
+                            @endforeach
+                            </div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Experience</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>Expert</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Hourly Rate</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>10$/hr</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Total Projects</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>230</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>English Level</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>Expert</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Availability</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>6 months</p>
+                                            </div>
+                                        </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label>Your Bio</label><br/>
+                                        <p>Your detail description</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <br>
-                @endforeach
-            </div>
+            </form>           
         </div>
-    </div>
-</x-app-layout>
-
-</script>
+@endsection
