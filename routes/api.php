@@ -36,10 +36,9 @@ Route::post('/addlog',[UserLog::class,'addlog']);
 
 
 
-// Protected routes
 
 Route::group(['middleware'=>['auth:sanctum']], function(){
-
+    
     //User
     Route::get('/user',[AuthController::class,'user']);
     Route::post('/logout',[AuthController::class,'logout']);
@@ -48,6 +47,8 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
     Route::post('/deletenote/{id}',[NotesController::class,'deleteNote']);
     Route::post('/addimg/{id}',[GalleryController::class,'addimg']);
     Route::get('/getimg/{id}',[GalleryController::class,'getimg']);
+    Route::post('/editnote/{id}',[NotesController::class,'editNotes']);
+    // Protected routes
     Route::post('/store-file', [DocumentController::class,'store']);
 
     
