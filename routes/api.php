@@ -40,6 +40,7 @@ Route::post('/addlog',[UserLog::class,'addlog']);
 Route::group(['middleware'=>['auth:sanctum']], function(){
     
     //User
+    Route::post('/view-file/{id}', [DocumentController::class,'view']);
     Route::get('/user',[AuthController::class,'user']);
     Route::post('/logout',[AuthController::class,'logout']);
     Route::post('/addnote',[NotesController::class,'addNotes']);
@@ -50,6 +51,7 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
     Route::post('/editnote/{id}',[NotesController::class,'editNotes']);
     // Protected routes
     Route::post('/store-file', [DocumentController::class,'store']);
+
 
     
    

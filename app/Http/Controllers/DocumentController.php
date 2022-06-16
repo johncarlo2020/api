@@ -5,10 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator,Redirect,Response,File;
 use App\Models\Document;
+use DB;
 
 class DocumentController extends Controller
 {
- 
+    public function view(Request $request, $id){
+
+        $img = DB::table('documents')->where('user_id', $id)->get();
+
+        return response([
+            'notes'=>$img
+        ]);
+
+    }
     public function store(Request $request)
     {
  
