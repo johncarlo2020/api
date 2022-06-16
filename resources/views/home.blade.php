@@ -22,7 +22,7 @@
       <td>{{$user->email}}</td>
       <td>{{$user->type}}</td>
       <td>{{$user->subcription}}</td>
-      <td>{{$user->interval}}</td>
+      <td class="text-danger">{{$user->interval}}</td>
       <td><a href="{{  url('') }}/dashboard/{{$user->id}}">
           <button type="button" class="btn btn-primary">View Details</button>
       </a>
