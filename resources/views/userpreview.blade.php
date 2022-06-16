@@ -34,14 +34,15 @@
                                         <button type="button" class="btn btn-danger ">Deactivate</button>
                                     </a>
                                     @endif
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#notes" role="tab" aria-controls="home" aria-selected="true">Notes</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#gallery" role="tab" aria-controls="profile" aria-selected="false">Gallery</a>
-                                </li>
-                            </ul>
+                                    <ul class="nav nav-tabs" id="myTab">
+                                        <li class="nav-item">
+                                            <a href="#home" class="nav-link active" data-bs-toggle="tab">Notes</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#profile" class="nav-link" data-bs-toggle="tab">Gallery</a>
+                                        </li>
+                                       
+                                    </ul>
                         </div>
                     </div>
                  
@@ -51,67 +52,38 @@
                        
                     </div>
                     <div class="col-md-8">
-                        <div class="tab-content profile-tab " id="myTabContent">
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="home">
+                        <div class="card">
                             @foreach($notes as $note)
-                            <div class="card" style="width: 40rem;">
-                              <div class="card-body">
-                                <h5 class="card-title">{{$note->title}}</h5>
-                                <p class="card-text">{{$note->body}}</p>
-                             
-                             </div>
-                            </div>
-                            @endforeach
-                            </div>
-                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Experience</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>Expert</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Hourly Rate</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>10$/hr</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Total Projects</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>230</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>English Level</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>Expert</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Availability</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>6 months</p>
-                                            </div>
-                                        </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <label>Your Bio</label><br/>
-                                        <p>Your detail description</p>
+                                
+                                    <div class="card-header">
+                                        {{$note->title}}
                                     </div>
-                                </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ $note->body}}</h5>
+                                        
+                                    </div>
+                                
+                            @endforeach 
                             </div>
                         </div>
+                        <div class="tab-pane fade" id="profile">
+                        <div class="row">
+                            @foreach($imgs as $img)
+                            <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+                                <img
+                                src="{{  url('') }}/{{$img->title}}"
+                                class="w-100 shadow-1-strong rounded mb-4"
+                                alt="Boat on Calm Water"
+                                />
+                                  
+                            </div>
+                                @endforeach
+                        </div>
+                        </div>
+                      
+                    </div>
                     </div>
                 </div>
             </form>           

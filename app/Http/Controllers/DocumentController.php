@@ -14,7 +14,7 @@ class DocumentController extends Controller
         $img = DB::table('documents')->where('user_id', $id)->get();
 
         return response([
-            'notes'=>$img
+            'gallery'=>$img
         ]);
 
     }
