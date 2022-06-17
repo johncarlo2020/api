@@ -55,7 +55,7 @@
             color: #FCFDEB !important;
         }
         .overflowContent{
-            height: 20vh;
+            height: 68vh;
             width: auto;
             overflow-y: auto;
             overflow-x: hidden;
@@ -63,7 +63,7 @@
         }
     </style>
     <div id="app">
-        <nav class="navbarmain navbar navbar-expand-md navbar-light  shadow-sm">
+        <nav class="navbarmain navbar navbar-expand-md navbar-light sticky-top shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img class="logo" src="{{ asset('/images/circlelogowhite.png') }}" alt="circle brush stroke">
