@@ -61,9 +61,12 @@
             overflow-x: hidden;
 
         }
+        .dropdown-menu a {
+            color: #3B3D28 !important;
+        }
     </style>
     <div id="app">
-        <nav class="navbarmain navbar navbar-expand-md navbar-light sticky-top shadow-sm">
+        <nav class="navbarmain navbar navbar-expand-md navbar-dark sticky-top shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img class="logo" src="{{ asset('/images/circlelogowhite.png') }}" alt="circle brush stroke">
@@ -95,13 +98,16 @@
                                 </li>
                             @endif
                         @else
+                            <li li class="nav-item">
+                                <a class="nav-link" href="{{  url('') }}/dashboard">Dashboard</a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end text-dark" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a class="dropdown-item " href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}

@@ -26,8 +26,8 @@
                                     </h6>
 
                                     @if($users[0]->status==0)
-                                    <a href="{{  url('') }}/dashboard/activate/{{$users[0]->id}}">
-                                        <button type="button" class="btn btn-primary">Activate</button>
+                                    <a class="btn btn-primary" href="{{  url('') }}/dashboard/activate/{{$users[0]->id}}">
+                                     Activate
                                     </a>
                                     @else
                                     <a href="{{  url('') }}/dashboard/deactivate/{{$users[0]->id}}">

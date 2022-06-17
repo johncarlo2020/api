@@ -23,14 +23,14 @@
       <td>{{$user->type}}</td>
       <td>{{$user->subcription}}</td>
       <td class="text-danger">{{$user->interval}}</td>
-      <td><a href="{{  url('') }}/dashboard/{{$user->id}}">
-          <button type="button" class="btn btn-primary">View Details</button>
+      <td><a class="btn btn-primary" href="{{  url('') }}/dashboard/{{$user->id}}">
+         View Details
       </a>
     </td>
 
-     
+
     </tr>
-   @endforeach  
+   @endforeach
   </tbody>
 </table>
 </div>
