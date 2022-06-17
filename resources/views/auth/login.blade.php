@@ -20,8 +20,6 @@
             body {
                 font-family: 'Nunito', sans-serif;
                 background: #FCFDEB;
-
-
             }
             .imageContainer{
                 display: flex;

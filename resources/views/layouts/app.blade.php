@@ -30,15 +30,36 @@
 </head>
 <body>
     <style>
-        .main{
+        body{
             font-family: 'Nunito', sans-serif;
-                background: #FCFDEB;
+            background: #FCFDEB;
+        }
+        .navbarmain{
+            color: #FCFDEB !important;
+            background-color:#3B3D28 !important;
+        }
+        .navbarmain a{
+            color: #FCFDEB !important;
+        }
+        .logo{
+            width: 25px;
+        }
+        .galleryImg{
+            max-height: 170px;
+            object-fit: cover;
+            border: solid 1px #cccccc;
+        }
+        .galleryImg:hover{
+            transform: scale(3);
+            position: relative;
+            z-index: 9999;
         }
     </style>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbarmain navbar navbar-expand-md navbar-light  shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
+                    <img class="logo" src="{{ asset('/images/circlelogowhite.png') }}" alt="circle brush stroke">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
