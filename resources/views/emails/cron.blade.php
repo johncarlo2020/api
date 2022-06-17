@@ -9,14 +9,18 @@
 
     <table>
         <tr>
-            <th>Name</th>
+            
             <th>Email</th>
+            <th>Type</th>
+            <th>Subcription</th>
             <th>Status</th>
         </tr>
         @foreach($mailData['users'] as $user)
         <tr>
-            <td>{{$user->name}}</td>
+           
             <td>{{$user->email}}</td>
+            <td>{{$user->type}}</td>
+            <td>{{$user->subcription}}</td>
             <td>{{$user->interval}}</td>
         </tr>
         @endforeach
