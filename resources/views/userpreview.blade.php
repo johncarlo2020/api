@@ -52,7 +52,7 @@
 
                     </div>
                     <div class="col-md-8">
-                    <div class="tab-content">
+                    <div class="tab-content mt-2">
                         <div class="tab-pane fade show active" id="home">
 
                             @foreach($notes as $note)
