@@ -54,6 +54,13 @@
             background:#3B3D28 !important;
             color: #FCFDEB !important;
         }
+        .overflowContent{
+            height: 20vh;
+            width: auto;
+            overflow-y: auto;
+            overflow-x: hidden;
+
+        }
     </style>
     <div id="app">
         <nav class="navbarmain navbar navbar-expand-md navbar-light  shadow-sm">

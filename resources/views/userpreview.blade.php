@@ -52,8 +52,8 @@
 
                     </div>
                     <div class="col-md-8">
-                    <div class="tab-content mt-2">
-                        <div class="tab-pane fade show active" id="home">
+                    <div class=" tab-content mt-2">
+                        <div class=" overflowContent tab-pane fade show active" id="home">
 
                             @foreach($notes as $note)
                             <div class="card mb-2">
@@ -67,7 +67,7 @@
                             @endforeach
 
                         </div>
-                        <div class="tab-pane fade" id="profile">
+                        <div class="overflowContent tab-pane fade" id="profile">
                         <div class="row">
                             @foreach($imgs as $img)
                             <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
