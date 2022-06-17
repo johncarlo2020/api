@@ -36,10 +36,10 @@
                                     @endif
                                     <ul class="nav nav-tabs mt-3" id="myTab">
                                         <li class="nav-item">
-                                            <a href="#home" class="nav-link active" data-bs-toggle="tab">Notes</a>
+                                            <a href="#home" class="nav-link active" data-bs-toggle="tab"><i class="fa-solid fa-book"></i> Notes</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#profile" class="nav-link" data-bs-toggle="tab">Gallery</a>
+                                            <a href="#profile" class="nav-link" data-bs-toggle="tab"><i class="fa-solid fa-image"></i> Gallery</a>
                                         </li>
                                     </ul>
 
@@ -57,11 +57,12 @@
 
                             @foreach($notes as $note)
                             <div class="card mb-2">
-                                    <div class="card-header">
-                                        {{$note->title}}
+                                    <div class="card-header cardHeader d-flex justify-content-between ">
+                                       <p class="fs-5 p-0 m-0 fw-bold"><i class="fa-solid fa-book"></i> {{$note->title}}</p>
+                                       <p class="fs-6 p-0 m-0"><small>{{$note->created_at}}</small></p>
                                     </div>
                                     <div class="card-body">
-                                        <h5 class="card-title">{{ $note->body}}</h5>
+                                        <h5 class=" fs-6 p-0 m-0">{{ $note->body}}</h5>
                                     </div>
                                 </div>
                             @endforeach

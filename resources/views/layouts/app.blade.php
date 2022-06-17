@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'My Last Words') }}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -64,6 +65,18 @@
         .dropdown-menu a {
             color: #3B3D28 !important;
         }
+        p{
+                font-family: Helvetica, arial, sans-serif;
+            }
+            .cardHeader{
+                color: #3B3D28 ;
+                background-color: #d7d7cb;
+            }
+            .card-body{
+                background-color: #FCFDEB;
+                border:1px #3B3D28 dashed !important;
+                border-top: none !important;
+            }
     </style>
     <div id="app">
         <nav class="navbarmain navbar navbar-expand-md navbar-dark sticky-top shadow-sm">

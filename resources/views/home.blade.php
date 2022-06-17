@@ -23,7 +23,7 @@
       <td>{{$user->type}}</td>
       <td>{{$user->subcription}}</td>
       <td class="text-danger">{{$user->interval}}</td>
-      <td><a class="btn btn-primary" href="{{  url('') }}/dashboard/{{$user->id}}">
+      <td><a class="btn btn-outline-secondary " href="{{  url('') }}/dashboard/{{$user->id}}">
          View Details
       </a>
     </td>
