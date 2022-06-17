@@ -49,10 +49,10 @@
             object-fit: cover;
             border: solid 1px #cccccc;
         }
-        .galleryImg:hover{
-            transform: scale(3);
-            position: relative;
-            z-index: 9999;
+
+        .nav-link.active {
+            background:#3B3D28 !important;
+            color: #FCFDEB !important;
         }
     </style>
     <div id="app">
