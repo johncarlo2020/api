@@ -29,6 +29,7 @@ class AuthController extends Controller
             'contactNumber'=>'required',
             'address'=>'required'
         ]);
+        
         // create user
         $user = User::create([
             'name' => $attrs['name'],
