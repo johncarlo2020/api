@@ -24,6 +24,9 @@ class User extends Authenticatable
         'type',
         'subcription',
         'status',
+        'userImage',
+        'contactNumber',
+        'address'
     ];
 
     /**
