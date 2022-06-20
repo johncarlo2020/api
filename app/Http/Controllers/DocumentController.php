@@ -24,7 +24,7 @@ class DocumentController extends Controller
        $validator = Validator::make($request->all(), 
               [ 
               'user_id' => 'required',
-              'file'  => 'required|max:2048',
+              'file' => ['required','mimes:jpeg,jpg,png,heif'],
 
              ]);   
  

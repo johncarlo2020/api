@@ -160,7 +160,9 @@ class AuthController extends Controller
         $users=DB::table('users')->where('id',$id)->get();
         $notes=DB::table('notes')->where('userId',$users[0]->id)->get();
      
-        return view('userpreview', compact("users","notes"));
+        $imgs = DB::table('documents')->where('user_id', $users[0]->id)->get();
+        
+        return view('userpreview', compact("users","notes","imgs"));
     }
     public function deactivate($id){
         $affected = DB::update(
@@ -170,7 +172,9 @@ class AuthController extends Controller
         $users=DB::table('users')->where('id',$id)->get();
         $notes=DB::table('notes')->where('userId',$users[0]->id)->get();
      
-        return view('userpreview', compact("users","notes"));
+        $imgs = DB::table('documents')->where('user_id', $users[0]->id)->get();
+        
+        return view('userpreview', compact("users","notes","imgs"));
     }
     
 }
