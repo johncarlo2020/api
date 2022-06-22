@@ -25,9 +25,7 @@ class AuthController extends Controller
             'type' => 'required',
             'subcription' => 'required',
             'status'=>'required',
-            'userImage'=>'required',
-            'contactNumber'=>'required',
-            'address'=>'required'
+            'userImage'=>'required'
         ]);
         
         // create user
