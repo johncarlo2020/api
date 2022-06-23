@@ -6,9 +6,24 @@ use Illuminate\Http\Request;
 use Validator,Redirect,Response,File;
 use App\Models\Document;
 use DB;
+use Illuminate\Support\Facades\Storage;
 
 class DocumentController extends Controller
 {
+    public function delete(Request $request, $id){
+
+        $img = DB::table('documents')->where('id', $id)->get();
+        $imgname=$img[0]->title;
+
+        File::delete($imgname);
+        $imgdelete = DB::table('documents')->where('id', $id)->delete();
+
+        return response([
+            'gallery'=>$imgname
+        ]);
+
+    }
+
     public function view(Request $request, $id){
 
         $img = DB::table('documents')->where('user_id', $id)->get();

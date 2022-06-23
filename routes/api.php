@@ -41,6 +41,8 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
     
     //User
     Route::post('/store-file', [DocumentController::class,'store']);
+    Route::post('/delete-file/{id}', [DocumentController::class,'delete']);
+
     Route::get('/view-file/{id}', [DocumentController::class,'view']);
     Route::get('/user',[AuthController::class,'user']);
     Route::post('/logout',[AuthController::class,'logout']);
