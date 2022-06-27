@@ -40,11 +40,13 @@ Route::post('/addlog',[UserLog::class,'addlog']);
 Route::group(['middleware'=>['auth:sanctum']], function(){
     
     //User
+    Route::post('/edit-user',[AuthController::class,'edituser']);
     Route::post('/store-file', [DocumentController::class,'store']);
     Route::post('/delete-file/{id}', [DocumentController::class,'delete']);
 
     Route::get('/view-file/{id}', [DocumentController::class,'view']);
     Route::get('/user',[AuthController::class,'user']);
+
     Route::post('/logout',[AuthController::class,'logout']);
     Route::post('/addnote',[NotesController::class,'addNotes']);
     Route::get('/getnotes/{id}',[NotesController::class,'getNotes']);

@@ -89,6 +89,29 @@ class AuthController extends Controller
             'user' => auth()->user()
         ],200);
     }
+    public function edituser(Request $request)
+    {
+        // validate fields
+        $attrs = $request->validate([
+            'id'=>'required',
+            'name' => 'required|string',
+             'contactNumber'=>'nullable',
+             'address'=>'nullable'
+        ]);
+        
+        $user = DB::table('users')
+              ->where('id', $attrs['id'])
+              ->update([
+                 'name' => $attrs['name'],
+                 'contactNumber'=> $attrs['contactNumber'],
+                'Address'=> $attrs['address']
+            ]);
+
+            return response([
+                'user' => 'success'
+               
+            ]);
+    }
 
     public function userlist(){
         $users=DB::table('users')->where('type','user')->get();
