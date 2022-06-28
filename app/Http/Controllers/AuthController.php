@@ -114,7 +114,7 @@ class AuthController extends Controller
     }
 
     public function userlist(){
-        $users=DB::table('users')->where('type','user')->get();
+        $users=DB::table('users')->where('type', '<>','admin')->get();
         $today = date('Y-m-d H:i:s');
 
         for($a=0;$a<count($users);$a++){
