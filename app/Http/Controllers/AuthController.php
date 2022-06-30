@@ -150,6 +150,7 @@ class AuthController extends Controller
         $attrs = $request->validate([
             'id'=>'required',
             'name' => 'required|string',
+            'email' => 'required|email',
              'contactNumber'=>'nullable',
              'address'=>'nullable'
         ]);
@@ -158,8 +159,9 @@ class AuthController extends Controller
               ->where('id', $attrs['id'])
               ->update([
                  'name' => $attrs['name'],
+                 'email'=>$attrs['email'],
                  'contactNumber'=> $attrs['contactNumber'],
-                'Address'=> $attrs['address']
+                 'Address'=> $attrs['address']
             ]);
 
             return response([
