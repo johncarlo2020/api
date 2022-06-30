@@ -50,6 +50,41 @@ class AuthController extends Controller
         ]);
     }
 
+    public function registerNew(Request $request)
+    {
+        // validate fields
+        $attrs = $request->validate([
+            'name' => 'required|string',
+            'email' => 'email',
+            'password' => 'required',
+            'type' => 'required',
+            'subcription' => 'required',
+            'status'=>'required',
+            'userImage'=>'required',
+            'contactNumber'=>'nullable',
+            'address'=>'nullable'
+        ]);
+        
+        // create user
+        $user = User::create([
+            'name' => $attrs['name'],
+            'email' => $attrs['email'],
+            'password' => bcrypt($attrs['password']),
+            'type' => $attrs['type'],
+            'subcription' => $attrs['subcription'],
+            'status'=> $attrs['status'],
+            'userImage'=> $attrs['userImage'],
+            'contactNumber'=> $attrs['contactNumber'],
+            'address'=> $attrs['address'],
+
+        ]);
+        //return user & token response
+        return response([
+            'user' => $user,
+            'token' => $user->createToken('secret')->plainTextToken
+        ]);
+    }
+
     // Login User
     public function login(Request $request)
     {
