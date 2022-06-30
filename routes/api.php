@@ -31,6 +31,7 @@ use App\Http\Controllers\DocumentController;
 
 Route::post('/register',[AuthController::class,'register']);
 Route::post('/login',[AuthController::class,'login']);
+Route::post('/loginOthers',[AuthController::class,'loginNew']);
 Route::post('/addlog',[UserLog::class,'addlog']);
 
 

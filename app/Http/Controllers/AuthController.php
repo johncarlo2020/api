@@ -72,6 +72,26 @@ class AuthController extends Controller
             'token' => auth()->user()->createToken('secret')->plainTextToken
         ], 200);
     }
+    public function loginNew(Request $request)
+    {
+        // validate fields
+        $attrs = $request->validate([         
+            'password' => 'required'
+        ]);
+        // attempt login
+        if(!Auth::attempt($attrs))
+        {
+            return response([
+                'message' => 'invalid credentials'
+            ], 403);
+        }
+        
+        //return user & token response
+        return response([            
+            'user' => auth()->user(),
+            'token' => auth()->user()->createToken('secret')->plainTextToken
+        ], 200);
+    }
     
     //Logout User
     public function logout(Request $request)
