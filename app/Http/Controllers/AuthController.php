@@ -55,8 +55,8 @@ class AuthController extends Controller
         // validate fields
         $attrs = $request->validate([
             'name' => 'required|string',
-            'email' => 'email',
-            'password' => 'required',
+            'email' => 'nullable',
+            'password' => 'required|unique',
             'type' => 'required',
             'subcription' => 'required',
             'status'=>'required',
@@ -76,8 +76,8 @@ class AuthController extends Controller
             'userImage'=> $attrs['userImage'],
             'contactNumber'=> $attrs['contactNumber'],
             'address'=> $attrs['address'],
-
         ]);
+
         //return user & token response
         return response([
             'user' => $user,
@@ -149,7 +149,7 @@ class AuthController extends Controller
         // validate fields
         $attrs = $request->validate([
             'id'=>'required',
-            'name' => 'required|string',
+            'name' => 'required|unique|string',
             'email' => 'required|email',
              'contactNumber'=>'nullable',
              'address'=>'nullable'
