@@ -56,7 +56,7 @@ class AuthController extends Controller
         $attrs = $request->validate([
             'name' => 'required|string',
             'email' => 'nullable',
-            'password' => 'required|unique',
+            'password' => 'required|unique:users,password',
             'type' => 'required',
             'subcription' => 'required',
             'status'=>'required',
@@ -149,8 +149,8 @@ class AuthController extends Controller
         // validate fields
         $attrs = $request->validate([
             'id'=>'required',
-            'name' => 'required|unique|string',
-            'email' => 'required|email',
+            'name' => 'required|string',
+            'email' => 'required|email|unique:users,email,id',
              'contactNumber'=>'nullable',
              'address'=>'nullable'
         ]);
