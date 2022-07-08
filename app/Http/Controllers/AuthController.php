@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\AppleAccounts;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use DateTime;
@@ -27,7 +28,7 @@ class AuthController extends Controller
             'status'=>'required',
             'userImage'=>'required',
             'contactNumber'=>'nullable',
-            'address'=>'nullable'
+            'address'=>'nullable',
         ]);
         
         // create user
@@ -55,14 +56,14 @@ class AuthController extends Controller
         // validate fields
         $attrs = $request->validate([
             'name' => 'required|string',
-            'email' => 'nullable',
-            'password' => 'required|unique:users,password',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required',
             'type' => 'required',
             'subcription' => 'required',
             'status'=>'required',
             'userImage'=>'required',
             'contactNumber'=>'nullable',
-            'address'=>'nullable'
+            'address'=>'nullable',
         ]);
         
         // create user
@@ -75,7 +76,7 @@ class AuthController extends Controller
             'status'=> $attrs['status'],
             'userImage'=> $attrs['userImage'],
             'contactNumber'=> $attrs['contactNumber'],
-            'address'=> $attrs['address'],
+            'address'=> $attrs['address'],          
         ]);
 
         //return user & token response
@@ -83,6 +84,35 @@ class AuthController extends Controller
             'user' => $user,
             'token' => $user->createToken('secret')->plainTextToken
         ]);
+    }
+
+    //add Apple Account
+    public function addAppleAccount(Request $request)
+    {
+        // validate fields
+        $attrs = $request->validate([
+            'appleID' => 'required|unique:apple_accounts,appleID',
+            'email' => 'nullable',
+            'name' => 'nullable',           
+        ]);
+        
+        // create apple account
+        $appleAcc = AppleAccounts::create([
+            'appleID' => $attrs['appleID'],
+            'email' => $attrs['email'],
+            'name' => $attrs['name'],                
+        ]);
+
+        //return apple account
+        return response([
+            'user' => $appleAcc,            
+        ]);
+    }
+
+    //get Apple Account
+    public function getAppleAccount(Request $request){
+       $result=DB::table('apple_accounts')->where('appleID',$request['appleID'])->get();
+       return $result;
     }
 
     // Login User
@@ -232,6 +262,9 @@ class AuthController extends Controller
         
         return view('userpreview', compact("users","notes","imgs"));
     }
+
+    
+
     public function activate($id){
 
         $affected = DB::update(

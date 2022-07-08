@@ -22,6 +22,9 @@ return new class extends Migration
             $table->string('type');
             $table->string('subcription');
             $table->integer('status');
+            $table->string('userImage');
+            $table->string('contactNumber')->nullable(true);
+            $table->string('address')->nullable(true);
             $table->rememberToken();
             $table->timestamps();
         });

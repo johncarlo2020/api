@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\NotesController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\userLog;
@@ -31,12 +32,11 @@ use App\Http\Controllers\DocumentController;
 
 Route::post('/register',[AuthController::class,'register']);
 Route::post('/login',[AuthController::class,'login']);
-Route::post('/loginOthers',[AuthController::class,'loginNew']);
-Route::post('/registerOthers',[AuthController::class,'registerNew']);
-
+Route::post('/addAppleAccount',[AuthController::class,'addAppleAccount']);
+Route::get('/getAppleAccount',[AuthController::class,'getAppleAccount']);
 Route::post('/addlog',[UserLog::class,'addlog']);
-
-
+Route::post('/password/email',[ForgotPasswordController::class,'forgot']);
+Route::post('/password/reset',[ForgotPasswordController::class,'reset']);
 
 
 
