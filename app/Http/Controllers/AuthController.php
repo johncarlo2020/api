@@ -112,7 +112,9 @@ class AuthController extends Controller
     //get Apple Account
     public function getAppleAccount(Request $request){
        $result=DB::table('apple_accounts')->where('appleID',$request['appleID'])->get();
-       return $result;
+       return response([
+        'apple_accounts' => $result
+    ],200);
     }
 
     // Login User
