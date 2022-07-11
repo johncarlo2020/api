@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://144.126.210.250/'),
+    'url' => env('APP_URL', 'https://mylastwordsadmin.online/'),
 
     'asset_url' => env('ASSET_URL', null),
 
