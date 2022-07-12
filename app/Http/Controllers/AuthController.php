@@ -51,40 +51,6 @@ class AuthController extends Controller
         ]);
     }
 
-    public function registerNew(Request $request)
-    {
-        // validate fields
-        $attrs = $request->validate([
-            'name' => 'required|string',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required',
-            'type' => 'required',
-            'subcription' => 'required',
-            'status'=>'required',
-            'userImage'=>'required',
-            'contactNumber'=>'nullable',
-            'address'=>'nullable',
-        ]);
-        
-        // create user
-        $user = User::create([
-            'name' => $attrs['name'],
-            'email' => $attrs['email'],
-            'password' => bcrypt($attrs['password']),
-            'type' => $attrs['type'],
-            'subcription' => $attrs['subcription'],
-            'status'=> $attrs['status'],
-            'userImage'=> $attrs['userImage'],
-            'contactNumber'=> $attrs['contactNumber'],
-            'address'=> $attrs['address'],          
-        ]);
-
-        //return user & token response
-        return response([
-            'user' => $user,
-            'token' => $user->createToken('secret')->plainTextToken
-        ]);
-    }
 
     //add Apple Account
     public function addAppleAccount(Request $request)
@@ -117,6 +83,27 @@ class AuthController extends Controller
     ],200);
     }
 
+    //update Apple Account
+    public function updateAppleAccountEmail(Request $request)
+    {
+        // validate fields
+        $attrs = $request->validate([
+            'appleID'=>'required',
+            'email' => 'required',            
+        ]);
+        
+        $user = DB::table('apple_accounts')
+              ->where('appleID', $attrs['appleID'])
+              ->update([           
+                 'email'=>$attrs['email'],         
+            ]);
+
+            return response([
+                'apple_accounts' => 'success'
+               
+            ]);
+    }
+
     // Login User
     public function login(Request $request)
     {
@@ -139,26 +126,7 @@ class AuthController extends Controller
             'token' => auth()->user()->createToken('secret')->plainTextToken
         ], 200);
     }
-    public function loginNew(Request $request)
-    {
-        // validate fields
-        $attrs = $request->validate([         
-            'password' => 'required'
-        ]);
-        // attempt login
-        if(!Auth::attempt($attrs))
-        {
-            return response([
-                'message' => 'invalid credentials'
-            ], 403);
-        }
-        
-        //return user & token response
-        return response([            
-            'user' => auth()->user(),
-            'token' => auth()->user()->createToken('secret')->plainTextToken
-        ], 200);
-    }
+  
     
     //Logout User
     public function logout(Request $request)
@@ -176,6 +144,8 @@ class AuthController extends Controller
             'user' => auth()->user()
         ],200);
     }
+
+    //updateUser
     public function edituser(Request $request)
     {
         // validate fields
@@ -201,7 +171,7 @@ class AuthController extends Controller
                
             ]);
     }
-
+    
     public function userlist(){
         $users=DB::table('users')->where('type', '<>','admin')->get();
         $today = date('Y-m-d H:i:s');

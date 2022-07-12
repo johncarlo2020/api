@@ -37,11 +37,10 @@ Route::get('/getAppleAccount',[AuthController::class,'getAppleAccount']);
 Route::post('/addlog',[UserLog::class,'addlog']);
 Route::post('/password/email',[ForgotPasswordController::class,'forgot']);
 Route::post('/password/reset',[ForgotPasswordController::class,'reset']);
+Route::post('/updateAppleAccountEmail',[AuthController::class,'updateAppleAccountEmail']);
 
 
-
-Route::group(['middleware'=>['auth:sanctum']], function(){
-    
+Route::group(['middleware'=>['auth:sanctum']], function(){    
     //User
     Route::post('/edit-user',[AuthController::class,'edituser']);
     Route::post('/store-file', [DocumentController::class,'store']);
