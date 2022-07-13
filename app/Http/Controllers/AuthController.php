@@ -201,7 +201,7 @@ class AuthController extends Controller
             $user = DB::table('users')
               ->where('id', $attrs['id'])
               ->update([                
-                 'userImage'=> $file
+                 'userImage'=> 'https://mylastwordsadmin.online/'.$file
             ]);
               
             return response()->json([
