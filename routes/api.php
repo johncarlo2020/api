@@ -48,7 +48,8 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
 
     Route::get('/view-file/{id}', [DocumentController::class,'view']);
     Route::get('/user',[AuthController::class,'user']);
-
+    Route::post('/changePhoto',[AuthController::class,'updateProfileImage']);
+    
     Route::post('/logout',[AuthController::class,'logout']);
     Route::post('/addnote',[NotesController::class,'addNotes']);
     Route::get('/getnotes/{id}',[NotesController::class,'getNotes']);

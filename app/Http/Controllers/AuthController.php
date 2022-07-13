@@ -171,6 +171,46 @@ class AuthController extends Controller
                
             ]);
     }
+
+    //updateProfilePicture
+    public function updateProfileImage(Request $request)
+    {
+        $attrs = $request->validate([
+            'id'=>'required',
+            'file' => ['required','mimes:jpeg,jpg,png,heif'],           
+        ]);
+ 
+       $validator = Validator::make($request->all(), 
+              [ 
+              'id' => 'required',
+              'file' => ['required','mimes:jpeg,jpg,png,heif'],
+
+             ]);   
+ 
+    if ($validator->fails()) {          
+            return response()->json(['error'=>$validator->errors()], 401);                        
+         }   
+        if ($files = $request->file('file')) {
+             
+            //store file into document folder
+            $file = $request->file->store('documents');
+            $path           = 'documents';
+            $file1=$request->file -> move($path, $file);  
+
+            $user = DB::table('users')
+              ->where('id', $attrs['id'])
+              ->update([                
+                 'userImage'=> $file
+            ]);
+              
+            return response()->json([
+                "success" => true,
+                "message" => "Profile Image successfully uploaded",
+                "file" => $file,                
+            ]);
+  
+        }  
+    }
     
     public function userlist(){
         $users=DB::table('users')->where('type', '<>','admin')->get();
