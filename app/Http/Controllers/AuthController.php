@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\AppleAccounts;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
+use Validator,Redirect,Response,File;
 use DateTime;
 
 
