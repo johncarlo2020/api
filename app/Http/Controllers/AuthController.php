@@ -212,6 +212,25 @@ class AuthController extends Controller
   
         }  
     }
+
+    //preparation for account deletion
+    public function requestedDeleteAccount(Request $request)
+    {
+        // validate fields
+        $attrs = $request->validate([
+            'id'=>'required',                     
+        ]);
+        
+        $user = DB::table('users')
+              ->where('id', $attrs['id'])
+              ->update([           
+                 'status'=> 2,         
+            ]);
+
+            return response([
+                'users' => 'successfully requested account removal'               
+            ]);
+    }
     
     public function userlist(){
         $users=DB::table('users')->where('type', '<>','admin')->get();

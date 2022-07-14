@@ -40,17 +40,21 @@ Route::post('/password/reset',[ForgotPasswordController::class,'reset']);
 Route::post('/updateAppleAccountEmail',[AuthController::class,'updateAppleAccountEmail']);
 
 
-Route::group(['middleware'=>['auth:sanctum']], function(){    
+Route::group(['middleware'=>['auth:sanctum']], function(){   
+
     //User
     Route::post('/edit-user',[AuthController::class,'edituser']);
-    Route::post('/store-file', [DocumentController::class,'store']);
-    Route::post('/delete-file/{id}', [DocumentController::class,'delete']);
-
-    Route::get('/view-file/{id}', [DocumentController::class,'view']);
-    Route::get('/user',[AuthController::class,'user']);
     Route::post('/changePhoto',[AuthController::class,'updateProfileImage']);
-    
     Route::post('/logout',[AuthController::class,'logout']);
+    Route::get('/user',[AuthController::class,'user']);
+    Route::get('/requestAccountRemoval',[AuthController::class,'requestedDeleteAccount']);
+
+    //gallery
+    Route::post('/store-file', [DocumentController::class,'store']);
+    Route::get('/view-file/{id}', [DocumentController::class,'view']);
+    Route::post('/delete-file/{id}', [DocumentController::class,'delete']);
+        
+    //notes
     Route::post('/addnote',[NotesController::class,'addNotes']);
     Route::get('/getnotes/{id}',[NotesController::class,'getNotes']);
     Route::post('/deletenote/{id}',[NotesController::class,'deleteNote']);
