@@ -153,7 +153,7 @@ class AuthController extends Controller
         $attrs = $request->validate([
             'id'=>'required',
             'name' => 'required|string',
-            'email' => 'required|email|unique:users,email,id',
+            'email' => 'required|email',
              'contactNumber'=>'nullable',
              'address'=>'nullable'
         ]);
