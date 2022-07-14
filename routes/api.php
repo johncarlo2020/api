@@ -47,7 +47,7 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
     Route::post('/changePhoto',[AuthController::class,'updateProfileImage']);
     Route::post('/logout',[AuthController::class,'logout']);
     Route::get('/user',[AuthController::class,'user']);
-    Route::get('/requestAccountRemoval',[AuthController::class,'requestedDeleteAccount']);
+    Route::post('/requestAccountRemoval',[AuthController::class,'requestedDeleteAccount']);
 
     //gallery
     Route::post('/store-file', [DocumentController::class,'store']);
