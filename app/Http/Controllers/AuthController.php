@@ -152,8 +152,7 @@ class AuthController extends Controller
         // validate fields
         $attrs = $request->validate([
             'id'=>'required',
-            'name' => 'required|string',
-            'email' => 'required|unique:users,email,'.$request['id'],
+            'name' => 'required|string',         
              'contactNumber'=>'nullable',
              'address'=>'nullable'
         ]);
@@ -161,8 +160,7 @@ class AuthController extends Controller
         $user = DB::table('users')
               ->where('id', $attrs['id'])
               ->update([
-                 'name' => $attrs['name'],
-                 'email'=>$attrs['email'],
+                 'name' => $attrs['name'],           
                  'contactNumber'=> $attrs['contactNumber'],
                  'Address'=> $attrs['address']
             ]);
