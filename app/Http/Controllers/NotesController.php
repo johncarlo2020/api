@@ -55,14 +55,18 @@ class NotesController extends Controller
     public function editNotes( Request $request, $id){
         $attrs = $request->validate([
             'title' => 'required|string',
-            'body' => 'required|string'
+            'body' => 'required|string',
+            'instructions' => 'required|string',
+            'contact' => 'required|string'
         ]);
 
         $note= DB::table('notes')
                         ->where('id', $id)
                          ->update([
                             'title' => $attrs['title'],
-                            'body' => $attrs['body']
+                            'body' => $attrs['body'],
+                            'instructions' => $attrs['instructions'],
+                            'contact' => $attrs['contact']
                         ]);
 
         return response([
