@@ -13,5 +13,7 @@ class Notes extends Model
         'userId',
         'title',
         'body',
+        'instructions',
+        'contact',
     ];
 }

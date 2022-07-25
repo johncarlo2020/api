@@ -15,13 +15,20 @@ class NotesController extends Controller
         $attrs = $request->validate([
             'userId'=> 'required|integer',
             'title' => 'required|string',
-            'body' => 'required|string'
+            'body' => 'required|string',
+            'instructions' => 'required|string',
+            'contact' => 'required|string'
+
+            
         ]);
 
         $note = Notes::create([
             'userId' => $attrs['userId'],
             'title' => $attrs['title'],
-            'body' => $attrs['body']
+            'body' => $attrs['body'],
+            'instructions' => $attrs['instructions'],
+            'contact' => $attrs['contact']
+
         ]);
 
         return response([
