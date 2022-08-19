@@ -6,25 +6,23 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
-
+                            <img class="img-fluid" src={{$users[0]->userImage}}  alt=""/>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="profile-head ">
                                     <h5>
-                                        {{$users[0]->name}}
+                                    Name: {{$users[0]->name}}
                                     </h5>
                                     <h6>
-                                    {{$users[0]->email}}
+                                    Email: {{$users[0]->email}}
                                     </h6>
                                     <h6>
-                                    {{$users[0]->type}}
+                                    Phone Number: {{$users[0]->type}}
                                     </h6>
                                     <h6>
-                                    {{$users[0]->subcription}}
+                                    Subscription: {{$users[0]->subcription}}
                                     </h6>
-
                                     @if($users[0]->status==0)
                                     <a class="btn btn-primary" href="{{  url('') }}/dashboard/activate/{{$users[0]->id}}">
                                      Activate
@@ -42,7 +40,6 @@
                                             <a href="#profile" class="nav-link" data-bs-toggle="tab"><i class="fa-solid fa-image"></i> Gallery</a>
                                         </li>
                                     </ul>
-
                         </div>
                     </div>
 
