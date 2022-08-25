@@ -5,11 +5,11 @@
 <table class="table table-striped" id="users">
   <thead>
     <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Email Address</th>
-      <th scope="col">Subscription</th>
-      <th scope="col">Status</th>
-      <th scope="col">Action</th>
+      <th scope="col" class="text-center">Name</th>
+      <th scope="col" class="text-center">Email Address</th>
+      <th scope="col" class="text-center">Subscription</th>
+      <th scope="col" class="text-center">Status</th>
+      <th scope="col" class="text-center">Action</th>
 
 
     </tr>
@@ -21,7 +21,7 @@
       <td>{{$user->email}}</td>
       <td>{{$user->subcription}}</td>
       <td class="text-danger">{{$user->interval}}</td>
-      <td><a class="btn btn-outline-secondary center" href="{{  url('') }}/dashboard/{{$user->id}}">
+      <td class="text-center"><a class="btn btn-outline-secondary center" href="{{  url('') }}/dashboard/{{$user->id}}">
          View Details
       </a>
     </td>
