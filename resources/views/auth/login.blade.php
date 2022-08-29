@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Laravel</title>
+        <title>mylastwordsadmin</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -13,6 +13,7 @@
         </style>
         <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <style>
             html{
                 height: 100%;
@@ -111,6 +112,12 @@
                                     <div class="inputStyle input-group mb-3">
                                         <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
                                         <input placeholder="Password" id="password" type="password" class="form-control shadow-none @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                            <span class="input-group-btn" id="eyeSlash">
+                                                <button class="btn btn-default reveal" onclick="visibility3()" type="button"><i class="fa fa-eye-slash" aria-hidden="true"></i></button>
+                                            </span>
+                                            <span class="input-group-btn" id="eyeShow" style="display: none;">
+                                                <button class="btn btn-default reveal" onclick="visibility3()" type="button"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                                            </span>                                            
                                         @error('password')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -148,8 +155,22 @@
                 </div>
             </div>
         </div>
-    </body>
+    </body>  
 </html>
+<script>
+   function visibility3() {
+    var x = document.getElementById('password');
+    if (x.type === 'password') {
+        x.type = "text";
+        $('#eyeShow').show();
+        $('#eyeSlash').hide();
+    }else {
+        x.type = "password";
+        $('#eyeShow').hide();
+        $('#eyeSlash').show();
+    }
+    }
+ </script>
 
 
 
