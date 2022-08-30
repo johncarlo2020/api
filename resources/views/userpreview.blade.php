@@ -43,6 +43,10 @@
                                     Delete Account
                                     </a>
                                     @endif
+                                    <a class="btn btn-success" href="">
+                                        {{-- <a class="btn btn-danger" href="{{  url('') }}/dashboard/activate/{{$users[0]->id}}"> --}}
+                                    Activate Subscription
+                                    </a>
                                     <ul class="nav nav-tabs mt-3" id="myTab">
                                         <li class="nav-item">
                                             <a href="#home" class="nav-link active" data-bs-toggle="tab"><i class="fa-solid fa-book"></i> Notes</a>

@@ -19,7 +19,7 @@
     @if($user->status==0)
     <tr class="table-warning">
     @elseif($user->status==1)
-    <tr class="table-primary">
+    <tr>
     @else
     <tr class="table-danger">
     @endif
