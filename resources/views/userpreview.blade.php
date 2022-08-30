@@ -18,18 +18,29 @@
                                     Email: {{$users[0]->email}}
                                     </h6>
                                     <h6>
-                                    Phone Number: {{$users[0]->type}}
-                                    </h6>
+                                    User Type: {{$users[0]->type}}
+                                    </h6>                                    
                                     <h6>
                                     Subscription: {{$users[0]->subcription}}
+                                    </h6>
+                                    <h6>
+                                    Contact Number: {{$users[0]->contactNumber}}
+                                    </h6>
+                                    <h6>
+                                    Address: {{$users[0]->address}}
                                     </h6>
                                     @if($users[0]->status==0)
                                     <a class="btn btn-primary" href="{{  url('') }}/dashboard/activate/{{$users[0]->id}}">
                                      Activate
                                     </a>
-                                    @else
+                                    @elseif ($users[0]->status==1)
                                     <a href="{{  url('') }}/dashboard/deactivate/{{$users[0]->id}}">
-                                        <button type="button" class="btn btn-danger ">Deactivate</button>
+                                        <button type="button" class="btn btn-warning ">Deactivate</button>
+                                    </a>                                    
+                                    @else
+                                    <a class="btn btn-danger" href="">
+                                    {{-- <a class="btn btn-danger" href="{{  url('') }}/dashboard/activate/{{$users[0]->id}}"> --}}
+                                    Delete Account
                                     </a>
                                     @endif
                                     <ul class="nav nav-tabs mt-3" id="myTab">

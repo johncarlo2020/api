@@ -16,7 +16,13 @@
   </thead>
   <tbody>
     @foreach($users as $user)
-    <tr>
+    @if($user->status==0)
+    <tr class="table-warning">
+    @elseif($user->status==1)
+    <tr class="table-primary">
+    @else
+    <tr class="table-danger">
+    @endif
       <th scope="row">{{$user->name}}</th>
       <td>{{$user->email}}</td>
       <td>{{$user->subcription}}</td>
