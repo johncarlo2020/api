@@ -4,31 +4,33 @@
 <div class="container emp-profile">
             <form method="post">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="profile-img">
-                            <img class="img-fluid" src={{$users[0]->userImage}}  alt=""/>
+                            <img class="img-fluid" src={{$users[0]->userImage}}  alt="..."/>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="profile-head ">
-                                    <h5>
-                                    Name: {{$users[0]->name}}
-                                    </h5>
-                                    <h6>
-                                    Email: {{$users[0]->email}}
-                                    </h6>
-                                    <h6>
-                                    User Type: {{$users[0]->type}}
-                                    </h6>                                    
-                                    <h6>
-                                    Subscription: {{$users[0]->subcription}}
-                                    </h6>
-                                    <h6>
-                                    Contact Number: {{$users[0]->contactNumber}}
-                                    </h6>
-                                    <h6>
-                                    Address: {{$users[0]->address}}
-                                    </h6>
+                            <dl class="row">
+                                <dt class="col-sm-3">Name:</dt>
+                                <dd class="col-sm-9">{{$users[0]->name}}</dd>
+                              
+                                <dt class="col-sm-3">Email:</dt>
+                                <dd class="col-sm-9">{{$users[0]->email}}</dd>
+                              
+                                <dt class="col-sm-3">User Type:</dt>
+                                <dd class="col-sm-9">{{$users[0]->type}}</dd>
+                              
+                                <dt class="col-sm-3 text-truncate">Subscription:</dt>
+                                <dd class="col-sm-9">{{$users[0]->subcription}}</dd>
+                                
+                                <dt class="col-sm-3 text-truncate">Contact Number:</dt>
+                                <dd class="col-sm-9">{{$users[0]->contactNumber}}</dd>
+
+                                <dt class="col-sm-3 text-truncate">Address</dt>
+                                <dd class="col-sm-9">{{$users[0]->address}}</dd>
+                              
+                              </dl>                                    
                                     @if($users[0]->status==0)
                                     <a class="btn btn-primary" href="{{  url('') }}/dashboard/activate/{{$users[0]->id}}">
                                      Activate
@@ -37,16 +39,22 @@
                                     <a href="{{  url('') }}/dashboard/deactivate/{{$users[0]->id}}">
                                         <button type="button" class="btn btn-warning ">Deactivate</button>
                                     </a>                                    
-                                    @else
-                                    <a class="btn btn-danger" href="">
-                                    {{-- <a class="btn btn-danger" href="{{  url('') }}/dashboard/activate/{{$users[0]->id}}"> --}}
+                                    @else                                    
+                                    <a class="btn btn-danger" onclick="return confirm('Are you sure to remove this user?')" href="{{  url('') }}/dashboard/deleteAccount/{{$users[0]->id}}">
                                     Delete Account
                                     </a>
-                                    @endif
-                                    <a class="btn btn-success" href="">
-                                        {{-- <a class="btn btn-danger" href="{{  url('') }}/dashboard/activate/{{$users[0]->id}}"> --}}
+                                    @endif    
+
+                                    @if($users[0]->subcription=="free")                               
+                                    <a class="btn btn-success" onclick="return confirm('Are you sure to activate subscription on this user?')" href="{{  url('') }}/dashboard/activateSubscription/{{$users[0]->id}}">
                                     Activate Subscription
                                     </a>
+                                    @else
+                                    <a class="btn btn-danger" onclick="return confirm('Are you sure to deactivate subscription on this user?')" href="{{  url('') }}/dashboard/deactivateSubscription/{{$users[0]->id}}">
+                                    Unsubscribe
+                                    </a>
+                                    @endif
+
                                     <ul class="nav nav-tabs mt-3" id="myTab">
                                         <li class="nav-item">
                                             <a href="#home" class="nav-link active" data-bs-toggle="tab"><i class="fa-solid fa-book"></i> Notes</a>

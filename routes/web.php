@@ -27,6 +27,9 @@ Route::get('/dashboard',[AuthController::class,'userlist'])->middleware(['auth']
 Route::get('/dashboard/{id}',[AuthController::class,'userpreview'])->middleware(['auth'])->name('preview');
 Route::get('/dashboard/activate/{id}',[AuthController::class,'activate'])->middleware(['auth'])->name('activate');
 Route::get('/dashboard/deactivate/{id}',[AuthController::class,'deactivate'])->middleware(['auth'])->name('deactivate');
+Route::get('/dashboard/deleteAccount/{id}',[AuthController::class,'deleteAccount'])->middleware(['auth'])->name('deleteAccount');
+Route::get('/dashboard/activateSubscription/{id}',[AuthController::class,'activateSubscription'])->middleware(['auth'])->name('activateSubscription');
+Route::get('/dashboard/deactivateSubscription/{id}',[AuthController::class,'deactivateSubscription'])->middleware(['auth'])->name('deactivateSubscription');
 
 
 

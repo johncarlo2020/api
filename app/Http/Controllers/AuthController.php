@@ -320,5 +320,91 @@ class AuthController extends Controller
         
         return view('userpreview', compact("users","notes","imgs"));
     }
-    
+
+//deleteaccount    
+    public function deleteAccount($id){
+        $affected = DB::delete(
+            'delete from user_logs where user_id = ?',
+            [$id]
+        );
+        $affected2 = DB::delete(
+            'delete from users where id = ?',
+            [$id]
+        );     
+        $users=DB::table('users')->where('type', '<>','admin')->get();
+        $today = date('Y-m-d H:i:s');
+        for($a=0;$a<count($users);$a++){
+            $id=$users[$a]->id;
+            $logs=DB::select("SELECT * FROM user_logs where user_id=$id order by id desc limit 1");
+            if($logs==null){
+                $tinterval='inactive';
+            }else{
+                $date=$logs[0]->date.' '.$logs[0]->time;
+                $first_datetime = new DateTime($today);
+                $last_datetime = new DateTime($date);
+                $interval = $first_datetime->diff($last_datetime);
+                $final_days = $interval->format('%a');
+                if($final_days==0){
+                $final_hours=$interval->format('%h');
+                $final_minute=$interval->format('%i');
+                $final_sec=$interval->format('%s');
+
+                if($final_hours==0){
+                    if($final_minute==0){
+                        $tinterval=' just now';
+
+                    }else if($final_minute==1){
+                        $tinterval=$final_minute.' min ago';
+
+                    }else{
+                        $tinterval=$final_minute.' mins ago';
+
+                    }
+                }else if($final_hours==1){
+                   
+                    $tinterval=$final_hours.' hour ago';
+
+                }else{
+                    $tinterval=$final_hours.' hours ago';
+                }
+
+            }else if($final_days==1){
+                $tinterval=$final_days.' day ago';
+                
+            }else{
+                $tinterval=$final_days.' days ago';
+
+            }
+            }                                   
+          $users[$a]->interval=$tinterval;
+        }
+        return view('home', compact("users"));
+    }
+
+//subscribe
+    public function activateSubscription($id){
+        $affected = DB::update(
+            'update users set subcription = "subscribed" where id = ?',
+            [$id]
+        );
+        $users=DB::table('users')->where('id',$id)->get();
+        $notes=DB::table('notes')->where('userId',$users[0]->id)->get();
+     
+        $imgs = DB::table('documents')->where('user_id', $users[0]->id)->get();
+        
+        return view('userpreview', compact("users","notes","imgs"));
+    }
+ //unsubscribe   
+    public function deactivateSubscription($id){
+        $affected = DB::update(
+            'update users set subcription = "free" where id = ?',
+            [$id]
+        );
+        $users=DB::table('users')->where('id',$id)->get();
+        $notes=DB::table('notes')->where('userId',$users[0]->id)->get();
+     
+        $imgs = DB::table('documents')->where('user_id', $users[0]->id)->get();
+        
+        return view('userpreview', compact("users","notes","imgs"));
+    }  
 }
