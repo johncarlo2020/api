@@ -16,8 +16,8 @@ class NotesController extends Controller
             'userId'=> 'required|integer',
             'title' => 'required|string',
             'body' => 'required|string',
-            'instructions' => 'required|string',
-            'contact' => 'required|string'
+            'instructions' => 'string',
+            'contact' => 'string'
 
             
         ]);
