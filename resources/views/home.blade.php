@@ -19,7 +19,7 @@
     @if($user->status==0)
     <tr class="table-warning">
     @elseif($user->status==1)
-      @if(str_contains($user->interval, 'inactive'))
+      @if(str_contains($user->interval, 'inactive')||str_contains($user->interval, 'Inactive'))
       <tr class="table-danger">
       @else
       <tr> 
