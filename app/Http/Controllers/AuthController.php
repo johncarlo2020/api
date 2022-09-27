@@ -230,6 +230,8 @@ class AuthController extends Controller
             ]);
     }
     
+
+    //userlist
     public function userlist(){
         $users=DB::table('users')->where('type', '<>','admin')->get();
         $today = date('Y-m-d H:i:s');
@@ -238,7 +240,7 @@ class AuthController extends Controller
             $id=$users[$a]->id;
             $logs=DB::select("SELECT * FROM user_logs where user_id=$id order by id desc limit 1");
             if($logs==null){
-                $tinterval='inactive';
+                $tinterval='Inactive';
             }else{
                 $date=$logs[0]->date.' '.$logs[0]->time;
                 $first_datetime = new DateTime($today);
@@ -252,7 +254,7 @@ class AuthController extends Controller
 
                 if($final_hours==0){
                     if($final_minute==0){
-                        $tinterval=' just now';
+                        $tinterval=' Just now';
 
                     }else if($final_minute==1){
                         $tinterval=$final_minute.' min ago';
@@ -272,6 +274,9 @@ class AuthController extends Controller
             }else if($final_days==1){
                 $tinterval=$final_days.' day ago';
                 
+            }
+            else if($final_days>=40){
+                $tinterval=$final_days.' days inactive';                
             }else{
                 $tinterval=$final_days.' days ago';
 

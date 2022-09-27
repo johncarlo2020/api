@@ -8,7 +8,7 @@
       <th scope="col" class="text-center">Name</th>
       <th scope="col" class="text-center">Email Address</th>
       <th scope="col" class="text-center">Subscription</th>
-      <th scope="col" class="text-center">Status</th>
+      <th scope="col" class="text-center">Time Log</th>
       <th scope="col" class="text-center">Action</th>
 
 
@@ -19,7 +19,11 @@
     @if($user->status==0)
     <tr class="table-warning">
     @elseif($user->status==1)
-    <tr>
+      @if(str_contains($user->interval, 'inactive'))
+      <tr class="table-danger">
+      @else
+      <tr> 
+      @endif     
     @else
     <tr class="table-danger">
     @endif
